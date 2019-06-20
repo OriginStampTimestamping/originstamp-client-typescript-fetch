@@ -4,10 +4,10 @@
 
 ![](https://originstamp.com/assets/images/logo/logo_simple_small.png)
 
-> A TypeScript Fetch implementation of the OriginStamp API. For endpoint documentation see [OriginStamp Documentation](https://doc.originstamp.org)
+> A TypeScript Fetch implementation of the OriginStamp API. For endpoint documentation see [OriginStamp Documentation](https://docs.originstamp.com)
 
 ```
-npm install originstamp-client-fetch@1.0.0 --save
+npm install originstamp-client-fetch@1.0.1 --save
 ```
 
 ### Specifications
