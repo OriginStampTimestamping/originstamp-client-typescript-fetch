@@ -1,7 +1,8 @@
 {
   "name": "originstamp-client-fetch",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "TypeScript Fetch client for the OriginStamp service",
+  "repository": "https://github.com/OriginStampTimestamping/originstamp-client-typescript-fetch",
   "author": "OriginStamp",
   "keywords": [
     "originstamp",

@@ -707,7 +707,6 @@ export const APIKeyApiFp = function(configuration?: Configuration) {
          */
         getApiKeyUsage(authorization: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultUsageResponse> {
             const localVarFetchArgs = APIKeyApiFetchParamCreator(configuration).getApiKeyUsage(authorization, options);
-            console.log(localVarFetchArgs);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
