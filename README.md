@@ -89,7 +89,7 @@ export class AppComponent {
         });
 
         const proofApi = new ProofApi();
-        proofApi.getProof(authorization, {proofType: 1, hash_string: hashString, currency: 0}).then(result => {
+        proofApi.getProof(authorization, {proof_type: 1, hash_string: hashString, currency: 0}).then(result => {
             console.log(result);
         });
 
