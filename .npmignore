@@ -1,0 +1,11 @@
+wwwroot/*.js
+node_modules
+typings
+
+package-lock.json
+
+.idea/
+
+.travis.yml
+
+git_push.sh

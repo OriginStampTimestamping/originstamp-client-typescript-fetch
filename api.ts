@@ -41,7 +41,7 @@ export interface FetchAPI {
 }
 
 /**
- *  
+ *
  * @export
  * @interface FetchArgs
  */
@@ -51,7 +51,7 @@ export interface FetchArgs {
 }
 
 /**
- * 
+ *
  * @export
  * @class BaseAPI
  */
@@ -64,10 +64,10 @@ export class BaseAPI {
             this.basePath = configuration.basePath || this.basePath;
         }
     }
-};
+}
 
 /**
- * 
+ *
  * @export
  * @class RequiredError
  * @extends {Error}
@@ -80,27 +80,47 @@ export class RequiredError extends Error {
 }
 
 /**
+ * Contains the currency ID and currency name
+ * @export
+ * @interface CurrencyModel
+ */
+export interface CurrencyModel {
+    /**
+     * Name of the currency (uppercase)
+     * @type {string}
+     * @memberof CurrencyModel
+     */
+    currency?: string;
+    /**
+     * ID of the currency, e.g. 0: Bitcoin 1: Ethereum
+     * @type {number}
+     * @memberof CurrencyModel
+     */
+    currency_id?: number;
+}
+
+/**
  * The default service response object uses error code and message to indicate errors. These errors are handled by the client.
  * @export
- * @interface DefaultSchedulerResponse
+ * @interface DefaultOfDownloadLinkResponse
  */
-export interface DefaultSchedulerResponse {
+export interface DefaultOfDownloadLinkResponse {
     /**
      * Generic response object which contains the response data, e.g. timestamp information.
-     * @type {SchedulerResponse}
-     * @memberof DefaultSchedulerResponse
+     * @type {DownloadLinkResponse}
+     * @memberof DefaultOfDownloadLinkResponse
      */
-    data?: SchedulerResponse;
+    data?: DownloadLinkResponse;
     /**
      * Contains the error of the request. If the error code is 0, everything is fine.
      * @type {number}
-     * @memberof DefaultSchedulerResponse
+     * @memberof DefaultOfDownloadLinkResponse
      */
     errorCode?: number;
     /**
      * Contains the error message, that possibly occurred. If it is empty, everything is fine.
      * @type {string}
-     * @memberof DefaultSchedulerResponse
+     * @memberof DefaultOfDownloadLinkResponse
      */
     errorMessage?: string;
 }
@@ -108,25 +128,149 @@ export interface DefaultSchedulerResponse {
 /**
  * The default service response object uses error code and message to indicate errors. These errors are handled by the client.
  * @export
- * @interface DefaultTimestampResponse
+ * @interface DefaultOfListOfCurrencyModel
  */
-export interface DefaultTimestampResponse {
+export interface DefaultOfListOfCurrencyModel {
     /**
      * Generic response object which contains the response data, e.g. timestamp information.
-     * @type {TimestampResponse}
-     * @memberof DefaultTimestampResponse
+     * @type {Array<CurrencyModel>}
+     * @memberof DefaultOfListOfCurrencyModel
      */
-    data?: TimestampResponse;
+    data?: Array<CurrencyModel>;
     /**
      * Contains the error of the request. If the error code is 0, everything is fine.
      * @type {number}
-     * @memberof DefaultTimestampResponse
+     * @memberof DefaultOfListOfCurrencyModel
      */
     errorCode?: number;
     /**
      * Contains the error message, that possibly occurred. If it is empty, everything is fine.
      * @type {string}
-     * @memberof DefaultTimestampResponse
+     * @memberof DefaultOfListOfCurrencyModel
+     */
+    errorMessage?: string;
+}
+
+/**
+ * The default service response object uses error code and message to indicate errors. These errors are handled by the client.
+ * @export
+ * @interface DefaultOfTimestampData
+ */
+export interface DefaultOfTimestampData {
+    /**
+     * Generic response object which contains the response data, e.g. timestamp information.
+     * @type {TimestampData}
+     * @memberof DefaultOfTimestampData
+     */
+    data?: TimestampData;
+    /**
+     * Contains the error of the request. If the error code is 0, everything is fine.
+     * @type {number}
+     * @memberof DefaultOfTimestampData
+     */
+    errorCode?: number;
+    /**
+     * Contains the error message, that possibly occurred. If it is empty, everything is fine.
+     * @type {string}
+     * @memberof DefaultOfTimestampData
+     */
+    errorMessage?: string;
+}
+
+/**
+ * The default service response object uses error code and message to indicate errors. These errors are handled by the client.
+ * @export
+ * @interface DefaultOfTimestampResponse
+ */
+export interface DefaultOfTimestampResponse {
+    /**
+     * Generic response object which contains the response data, e.g. timestamp information.
+     * @type {TimestampResponse}
+     * @memberof DefaultOfTimestampResponse
+     */
+    data?: TimestampResponse;
+    /**
+     * Contains the error of the request. If the error code is 0, everything is fine.
+     * @type {number}
+     * @memberof DefaultOfTimestampResponse
+     */
+    errorCode?: number;
+    /**
+     * Contains the error message, that possibly occurred. If it is empty, everything is fine.
+     * @type {string}
+     * @memberof DefaultOfTimestampResponse
+     */
+    errorMessage?: string;
+}
+
+/**
+ * The default service response object uses error code and message to indicate errors. These errors are handled by the client.
+ * @export
+ * @interface DefaultOfVoid
+ */
+export interface DefaultOfVoid {
+    /**
+     * Contains the error of the request. If the error code is 0, everything is fine.
+     * @type {number}
+     * @memberof DefaultOfVoid
+     */
+    errorCode?: number;
+    /**
+     * Contains the error message, that possibly occurred. If it is empty, everything is fine.
+     * @type {string}
+     * @memberof DefaultOfVoid
+     */
+    errorMessage?: string;
+}
+
+/**
+ * The default service response object uses error code and message to indicate errors. These errors are handled by the client.
+ * @export
+ * @interface DefaultOfWebhookResponse
+ */
+export interface DefaultOfWebhookResponse {
+    /**
+     * Generic response object which contains the response data, e.g. timestamp information.
+     * @type {WebhookResponse}
+     * @memberof DefaultOfWebhookResponse
+     */
+    data?: WebhookResponse;
+    /**
+     * Contains the error of the request. If the error code is 0, everything is fine.
+     * @type {number}
+     * @memberof DefaultOfWebhookResponse
+     */
+    errorCode?: number;
+    /**
+     * Contains the error message, that possibly occurred. If it is empty, everything is fine.
+     * @type {string}
+     * @memberof DefaultOfWebhookResponse
+     */
+    errorMessage?: string;
+}
+
+/**
+ * The default service response object uses error code and message to indicate errors. These errors are handled by the client.
+ * @export
+ * @interface DefaultOfstring
+ */
+export interface DefaultOfstring {
+    /**
+     * Generic response object which contains the response data, e.g. timestamp information.
+     * @type {string}
+     * @memberof DefaultOfstring
+     */
+    data?: string;
+    /**
+     * Contains the error of the request. If the error code is 0, everything is fine.
+     * @type {number}
+     * @memberof DefaultOfstring
+     */
+    errorCode?: number;
+    /**
+     * Contains the error message, that possibly occurred. If it is empty, everything is fine.
+     * @type {string}
+     * @memberof DefaultOfstring
      */
     errorMessage?: string;
 }
@@ -158,29 +302,49 @@ export interface DefaultUsageResponse {
 }
 
 /**
- * The default service response object uses error code and message to indicate errors. These errors are handled by the client.
+ * DTO for the download link of a proof request.
  * @export
- * @interface Defaultstring
+ * @interface DownloadLinkResponse
  */
-export interface Defaultstring {
+export interface DownloadLinkResponse {
     /**
-     * Generic response object which contains the response data, e.g. timestamp information.
+     * URL to download file.
      * @type {string}
-     * @memberof Defaultstring
+     * @memberof DownloadLinkResponse
      */
-    data?: string;
+    download_url?: string;
     /**
-     * Contains the error of the request. If the error code is 0, everything is fine.
+     * File name of downloaded file.
+     * @type {string}
+     * @memberof DownloadLinkResponse
+     */
+    file_name?: string;
+    /**
+     * File size in bytes.
      * @type {number}
-     * @memberof Defaultstring
+     * @memberof DownloadLinkResponse
      */
-    errorCode?: number;
+    file_size_bytes?: number;
+}
+
+/**
+ * Request object for a manual webhook request.
+ * @export
+ * @interface ManualWebhookRequest
+ */
+export interface ManualWebhookRequest {
     /**
-     * Contains the error message, that possibly occurred. If it is empty, everything is fine.
+     * SHA-256 Hash in Hex representation.
      * @type {string}
-     * @memberof Defaultstring
+     * @memberof ManualWebhookRequest
      */
-    errorMessage?: string;
+    hash: string;
+    /**
+     * The target URL to which we send the timestamp information of the requested hash via a post request.
+     * @type {string}
+     * @memberof ManualWebhookRequest
+     */
+    webhook_url: string;
 }
 
 /**
@@ -200,9 +364,9 @@ export interface Notification {
      * @type {number}
      * @memberof Notification
      */
-    notificationType: number;
+    notification_type: number;
     /**
-     * Depending on the notification type, specify the target for the notification (e.g. email address or webhook url). The webhook url will reveive a POST request after timestamp was successfully created.
+     * Depending on the notification type, specify the target for the notification (e.g. mail address or webhook URL). The webhook URL will receive a POST request after timestamp was successfully created.
      * @type {string}
      * @memberof Notification
      */
@@ -210,13 +374,13 @@ export interface Notification {
 }
 
 /**
- * request object for proof request.
+ * Request object for proof request.
  * @export
  * @interface ProofRequest
  */
 export interface ProofRequest {
     /**
-     * 0: Bitcoin
+     * 0: Bitcoin 1: Ethereum 2: AION 100: Südkurier
      * @type {number}
      * @memberof ProofRequest
      */
@@ -226,144 +390,27 @@ export interface ProofRequest {
      * @type {string}
      * @memberof ProofRequest
      */
-    hashString: string;
+    hash_string: string;
     /**
      * Specifies which type of file should be returned. Possible value(s):  0: proof with a seed file (txt) or proof with a merkle tree (xml) 1: proof with a PDF file   Other formats will follow.
      * @type {number}
      * @memberof ProofRequest
      */
-    proofType: number;
+    proof_type: number;
 }
 
 /**
- * 
+ * Request object for bulk timestamping request.
  * @export
- * @interface ResponseEntity
+ * @interface TimestampBulkRequest
  */
-export interface ResponseEntity {
+export interface TimestampBulkRequest {
     /**
-     * 
-     * @type {any}
-     * @memberof ResponseEntity
+     * Array of timestamp request DTOs which will be timestamped.
+     * @type {Array<TimestampRequest>}
+     * @memberof TimestampBulkRequest
      */
-    body?: any;
-    /**
-     * 
-     * @type {string}
-     * @memberof ResponseEntity
-     */
-    statusCode?: ResponseEntity.StatusCodeEnum;
-    /**
-     * 
-     * @type {number}
-     * @memberof ResponseEntity
-     */
-    statusCodeValue?: number;
-}
-
-/**
- * @export
- * @namespace ResponseEntity
- */
-export namespace ResponseEntity {
-    /**
-     * @export
-     * @enum {string}
-     */
-    export enum StatusCodeEnum {
-        _100 = <any> '100',
-        _101 = <any> '101',
-        _102 = <any> '102',
-        _103 = <any> '103',
-        _200 = <any> '200',
-        _201 = <any> '201',
-        _202 = <any> '202',
-        _203 = <any> '203',
-        _204 = <any> '204',
-        _205 = <any> '205',
-        _206 = <any> '206',
-        _207 = <any> '207',
-        _208 = <any> '208',
-        _226 = <any> '226',
-        _300 = <any> '300',
-        _301 = <any> '301',
-        _302 = <any> '302',
-        _303 = <any> '303',
-        _304 = <any> '304',
-        _305 = <any> '305',
-        _307 = <any> '307',
-        _308 = <any> '308',
-        _400 = <any> '400',
-        _401 = <any> '401',
-        _402 = <any> '402',
-        _403 = <any> '403',
-        _404 = <any> '404',
-        _405 = <any> '405',
-        _406 = <any> '406',
-        _407 = <any> '407',
-        _408 = <any> '408',
-        _409 = <any> '409',
-        _410 = <any> '410',
-        _411 = <any> '411',
-        _412 = <any> '412',
-        _413 = <any> '413',
-        _414 = <any> '414',
-        _415 = <any> '415',
-        _416 = <any> '416',
-        _417 = <any> '417',
-        _418 = <any> '418',
-        _419 = <any> '419',
-        _420 = <any> '420',
-        _421 = <any> '421',
-        _422 = <any> '422',
-        _423 = <any> '423',
-        _424 = <any> '424',
-        _426 = <any> '426',
-        _428 = <any> '428',
-        _429 = <any> '429',
-        _431 = <any> '431',
-        _451 = <any> '451',
-        _500 = <any> '500',
-        _501 = <any> '501',
-        _502 = <any> '502',
-        _503 = <any> '503',
-        _504 = <any> '504',
-        _505 = <any> '505',
-        _506 = <any> '506',
-        _507 = <any> '507',
-        _508 = <any> '508',
-        _509 = <any> '509',
-        _510 = <any> '510',
-        _511 = <any> '511'
-    }
-}
-
-/**
- * DTO for schedule request.
- * @export
- * @interface SchedulerRequest
- */
-export interface SchedulerRequest {
-    /**
-     * Currency for which the next submission time should be retrieved.  0: Bitcoin
-     * @type {number}
-     * @memberof SchedulerRequest
-     */
-    currency?: number;
-}
-
-/**
- * DTO which contains nxt submission time.
- * @export
- * @interface SchedulerResponse
- */
-export interface SchedulerResponse {
-    /**
-     * Next submission time. The date is returned in the following format: [ms] since 1.1.1970 (unix epoch), timezone: UTC. The timezone is UTC.
-     * @type {number}
-     * @memberof SchedulerResponse
-     */
-    submissionTime?: number;
+    timestamps: Array<TimestampRequest>;
 }
 
 /**
@@ -377,19 +424,25 @@ export interface TimestampData {
      * @type {number}
      * @memberof TimestampData
      */
-    currencyId?: number;
+    currency_id?: number;
     /**
      * The private key represents the top hash in the Merkle Tree (see https://en.wikipedia.org/wiki/Merkle_tree ) or the hash of all hashes in the transaction.
      * @type {string}
      * @memberof TimestampData
      */
-    privateKey?: string;
+    private_key?: string;
+    /**
+     * ID of associated seed which can be used to request separate seed information.
+     * @type {string}
+     * @memberof TimestampData
+     */
+    seed_id?: string;
     /**
      * The submit status of the hash:   0: the hash was not broadcasted yet  1: the hash was included into a transaction and broadcasted to the network, but not included into a block  2: the transaction was included into the latest block  3: the timestamp for your hash was successfully created.
      * @type {number}
      * @memberof TimestampData
      */
-    submitStatus?: number;
+    submit_status?: number;
     /**
      * The date is returned in the following format: [ms] since 1.1.1970 (unix epoch), timezone: UTC. This is a true timestamp.
      * @type {number}
@@ -424,16 +477,10 @@ export interface TimestampRequest {
     hash: string;
     /**
      * Add a notification/notification list to your submission. Our system will notify the specified target with the timestamp information.
-     * @type {Array&lt;Notification&gt;}
+     * @type {Array<Notification>}
      * @memberof TimestampRequest
      */
     notifications?: Array<Notification>;
-    /**
-     * Preprint URL. Insert the generated UUID here. You can generate an UUID-4 and include it into your document: https://originstamp.org/u/uuid4. When submitting the your file, the url is part of the hash, which finally means it the link to the timestamp is part of the timestamp.
-     * @type {string}
-     * @memberof TimestampRequest
-     */
-    url?: string;
 }
 
 /**
@@ -449,7 +496,7 @@ export interface TimestampResponse {
      */
     comment?: string;
     /**
-     * Field is set to true if it is a novel hash. If the flag is false, the hash was already submitted before.
+     * Field is set to true if it is a novel hash.If the flag is false, the hash was already submitted before.
      * @type {boolean}
      * @memberof TimestampResponse
      */
@@ -459,67 +506,610 @@ export interface TimestampResponse {
      * @type {number}
      * @memberof TimestampResponse
      */
-    dateCreated?: number;
+    date_created?: number;
     /**
      * The submitted hash in hex representation.
      * @type {string}
      * @memberof TimestampResponse
      */
-    hashString?: string;
+    hash_string?: string;
     /**
      * Contains all the timestamp data of your hash until now.
-     * @type {Array&lt;TimestampData&gt;}
+     * @type {Array<TimestampData>}
      * @memberof TimestampResponse
      */
     timestamps?: Array<TimestampData>;
 }
 
 /**
- * Get the current credit usage for this month.
+ * Usage metric for this month.
  * @export
  * @interface UsageResponse
  */
 export interface UsageResponse {
     /**
-     * Represents the number of used credits for the current month.
+     * Total number of certificates available per month.
      * @type {number}
      * @memberof UsageResponse
      */
-    consumedCredits?: number;
+    certificate_per_month?: number;
+    /**
+     * Number of certificates requested for the current month.
+     * @type {number}
+     * @memberof UsageResponse
+     */
+    consumed_certificates?: number;
+    /**
+     * Number of used credits for the current month.
+     * @type {number}
+     * @memberof UsageResponse
+     */
+    consumed_credits?: number;
+    /**
+     * Number of timestamps created for the current month.
+     * @type {number}
+     * @memberof UsageResponse
+     */
+    consumed_timestamps?: number;
     /**
      * Represents the total number of credits per month.
      * @type {number}
      * @memberof UsageResponse
      */
-    creditsPerMonth?: number;
+    credits_per_month?: number;
     /**
-     * Represents the remaining number of credits for the current month.
+     * Determines which usage metric is applied (0 = credits, 1 = timestamps).
      * @type {number}
      * @memberof UsageResponse
      */
-    remainingCredits?: number;
+    limitation_type?: number;
+    /**
+     * Remaining number of credits for the current month.
+     * @type {number}
+     * @memberof UsageResponse
+     */
+    remaining_credits?: number;
+    /**
+     * Total number of timestamps available per month.
+     * @type {number}
+     * @memberof UsageResponse
+     */
+    timestamps_per_month?: number;
 }
 
 /**
- * Request object for a manual webhook request.
+ * Request object for a webhook request.
  * @export
  * @interface WebhookRequest
  */
 export interface WebhookRequest {
     /**
-     * SHA-256 Hash in Hex representation
-     * @type {string}
+     * Currency ID for which the webhook should be executed. Possible values: 0: Bitcoin 1: Ethereum 2: AION 100: Südkurier
+     * @type {number}
      * @memberof WebhookRequest
      */
-    hash: string;
+    currency?: number;
     /**
-     * target url that should receive the webhook
+     * Hash (SHA-256 in HEX) for which a notification is requested.
      * @type {string}
      * @memberof WebhookRequest
      */
-    webhookUrl: string;
+    hash?: string;
+    /**
+     * Target address to which a POST request should be executed.
+     * @type {string}
+     * @memberof WebhookRequest
+     */
+    target?: string;
 }
 
+/**
+ * response object for a webhook request. Contains only the most recent webhook information for target URL, hash and currency.
+ * @export
+ * @interface WebhookResponse
+ */
+export interface WebhookResponse {
+    /**
+     * Currency for which the webhook is triggered, e.g.  0: Bitcoin 1: Ethereum
+     * @type {number}
+     * @memberof WebhookResponse
+     */
+    currency?: number;
+    /**
+     * Shows if the webhook was executed.
+     * @type {boolean}
+     * @memberof WebhookResponse
+     */
+    executed?: boolean;
+    /**
+     * The submitted hash in hex representation.
+     * @type {string}
+     * @memberof WebhookResponse
+     */
+    hash?: string;
+    /**
+     * Indicates whether the webhook was executed successfully or not.
+     * @type {boolean}
+     * @memberof WebhookResponse
+     */
+    success?: boolean;
+    /**
+     * Returns the number of tries for the webhook execution.
+     * @type {number}
+     * @memberof WebhookResponse
+     */
+    tries?: number;
+}
+
+
+/**
+ * APIKeyApi - fetch parameter creator
+ * @export
+ */
+export const APIKeyApiFetchParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * With this interface you can receive the current usage of your API key. The usage statistic refers to the associated account.
+         * @summary Usage
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getApiKeyUsage(authorization: string, options: any = {}): FetchArgs {
+            // verify required parameter 'authorization' is not null or undefined
+            if (authorization === null || authorization === undefined) {
+                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling getApiKeyUsage.');
+            }
+            const localVarPath = `/v3/api_key/usage`;
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * APIKeyApi - functional programming interface
+ * @export
+ */
+export const APIKeyApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * With this interface you can receive the current usage of your API key. The usage statistic refers to the associated account.
+         * @summary Usage
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getApiKeyUsage(authorization: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultUsageResponse> {
+            const localVarFetchArgs = APIKeyApiFetchParamCreator(configuration).getApiKeyUsage(authorization, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+    }
+};
+
+/**
+ * APIKeyApi - factory interface
+ * @export
+ */
+export const APIKeyApiFactory = function (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) {
+    return {
+        /**
+         * With this interface you can receive the current usage of your API key. The usage statistic refers to the associated account.
+         * @summary Usage
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getApiKeyUsage(authorization: string, options?: any) {
+            return APIKeyApiFp(configuration).getApiKeyUsage(authorization, options)(fetch, basePath);
+        },
+    };
+};
+
+/**
+ * APIKeyApi - object-oriented interface
+ * @export
+ * @class APIKeyApi
+ * @extends {BaseAPI}
+ */
+export class APIKeyApi extends BaseAPI {
+    /**
+     * With this interface you can receive the current usage of your API key. The usage statistic refers to the associated account.
+     * @summary Usage
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof APIKeyApi
+     */
+    public getApiKeyUsage(authorization: string, options?: any) {
+        return APIKeyApiFp(this.configuration).getApiKeyUsage(authorization, options)(this.fetch, this.basePath);
+    }
+
+}
+
+/**
+ * BulkApi - fetch parameter creator
+ * @export
+ */
+export const BulkApiFetchParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * With this interface you can submit multiple hashes at once. If your API key is valid, your hashes are added to seeds and scheduled for timestamping. You are also able to submit additional information with every hash, such as a comment or notification target. If the hash already exists, the 'created' field in the response is set to 'false' and the notification(s) of the corresponding hash will be ignored. To later query the status of any hash for a certain blockchain you can use the 'seed_id' field of its inner timestamp structure. This field can be used to query the timestamping status of the selected seed. This is recommended if a large number of hashes were transmitted in a certain time frame. Once a hash is successfully created for a certain crypto currency, we can notify your desired target with the timestamp information (via POST Request). A webhook for a submitted hash is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. 
+         * @summary Bulk Submission
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {TimestampBulkRequest} timestampBulkRequest DTO for the bulk hash submission. Add all relevant information concerning your hash submissions.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createBulkTimestamp(authorization: string, timestampBulkRequest: TimestampBulkRequest, options: any = {}): FetchArgs {
+            // verify required parameter 'authorization' is not null or undefined
+            if (authorization === null || authorization === undefined) {
+                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling createBulkTimestamp.');
+            }
+            // verify required parameter 'timestampBulkRequest' is not null or undefined
+            if (timestampBulkRequest === null || timestampBulkRequest === undefined) {
+                throw new RequiredError('timestampBulkRequest','Required parameter timestampBulkRequest was null or undefined when calling createBulkTimestamp.');
+            }
+            const localVarPath = `/v4/timestamp/bulk/create`;
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+            const needsSerialization = (<any>"TimestampBulkRequest" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(timestampBulkRequest || {}) : (timestampBulkRequest || "");
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * With this interface you can request the status for a certain seed. This is used when checking the status of previously submitted hashes and avoids sending individual status requests for each hash.
+         * @summary Seed Status
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {string} seedId ID of the timestamp seed
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSeedStatus(authorization: string, seedId: string, options: any = {}): FetchArgs {
+            // verify required parameter 'authorization' is not null or undefined
+            if (authorization === null || authorization === undefined) {
+                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling getSeedStatus.');
+            }
+            // verify required parameter 'seedId' is not null or undefined
+            if (seedId === null || seedId === undefined) {
+                throw new RequiredError('seedId','Required parameter seedId was null or undefined when calling getSeedStatus.');
+            }
+            const localVarPath = `/v4/timestamp/status/seed/{seed_id}`
+                .replace(`{${"seed_id"}}`, encodeURIComponent(String(seedId)));
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * BulkApi - functional programming interface
+ * @export
+ */
+export const BulkApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * With this interface you can submit multiple hashes at once. If your API key is valid, your hashes are added to seeds and scheduled for timestamping. You are also able to submit additional information with every hash, such as a comment or notification target. If the hash already exists, the 'created' field in the response is set to 'false' and the notification(s) of the corresponding hash will be ignored. To later query the status of any hash for a certain blockchain you can use the 'seed_id' field of its inner timestamp structure. This field can be used to query the timestamping status of the selected seed. This is recommended if a large number of hashes were transmitted in a certain time frame. Once a hash is successfully created for a certain crypto currency, we can notify your desired target with the timestamp information (via POST Request). A webhook for a submitted hash is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. 
+         * @summary Bulk Submission
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {TimestampBulkRequest} timestampBulkRequest DTO for the bulk hash submission. Add all relevant information concerning your hash submissions.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createBulkTimestamp(authorization: string, timestampBulkRequest: TimestampBulkRequest, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Array<DefaultOfTimestampResponse>> {
+            const localVarFetchArgs = BulkApiFetchParamCreator(configuration).createBulkTimestamp(authorization, timestampBulkRequest, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+        /**
+         * With this interface you can request the status for a certain seed. This is used when checking the status of previously submitted hashes and avoids sending individual status requests for each hash.
+         * @summary Seed Status
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {string} seedId ID of the timestamp seed
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSeedStatus(authorization: string, seedId: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultOfTimestampData> {
+            const localVarFetchArgs = BulkApiFetchParamCreator(configuration).getSeedStatus(authorization, seedId, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+    }
+};
+
+/**
+ * BulkApi - factory interface
+ * @export
+ */
+export const BulkApiFactory = function (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) {
+    return {
+        /**
+         * With this interface you can submit multiple hashes at once. If your API key is valid, your hashes are added to seeds and scheduled for timestamping. You are also able to submit additional information with every hash, such as a comment or notification target. If the hash already exists, the 'created' field in the response is set to 'false' and the notification(s) of the corresponding hash will be ignored. To later query the status of any hash for a certain blockchain you can use the 'seed_id' field of its inner timestamp structure. This field can be used to query the timestamping status of the selected seed. This is recommended if a large number of hashes were transmitted in a certain time frame. Once a hash is successfully created for a certain crypto currency, we can notify your desired target with the timestamp information (via POST Request). A webhook for a submitted hash is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. 
+         * @summary Bulk Submission
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {TimestampBulkRequest} timestampBulkRequest DTO for the bulk hash submission. Add all relevant information concerning your hash submissions.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        createBulkTimestamp(authorization: string, timestampBulkRequest: TimestampBulkRequest, options?: any) {
+            return BulkApiFp(configuration).createBulkTimestamp(authorization, timestampBulkRequest, options)(fetch, basePath);
+        },
+        /**
+         * With this interface you can request the status for a certain seed. This is used when checking the status of previously submitted hashes and avoids sending individual status requests for each hash.
+         * @summary Seed Status
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {string} seedId ID of the timestamp seed
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getSeedStatus(authorization: string, seedId: string, options?: any) {
+            return BulkApiFp(configuration).getSeedStatus(authorization, seedId, options)(fetch, basePath);
+        },
+    };
+};
+
+/**
+ * BulkApi - object-oriented interface
+ * @export
+ * @class BulkApi
+ * @extends {BaseAPI}
+ */
+export class BulkApi extends BaseAPI {
+    /**
+     * With this interface you can submit multiple hashes at once. If your API key is valid, your hashes are added to seeds and scheduled for timestamping. You are also able to submit additional information with every hash, such as a comment or notification target. If the hash already exists, the 'created' field in the response is set to 'false' and the notification(s) of the corresponding hash will be ignored. To later query the status of any hash for a certain blockchain you can use the 'seed_id' field of its inner timestamp structure. This field can be used to query the timestamping status of the selected seed. This is recommended if a large number of hashes were transmitted in a certain time frame. Once a hash is successfully created for a certain crypto currency, we can notify your desired target with the timestamp information (via POST Request). A webhook for a submitted hash is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. 
+     * @summary Bulk Submission
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
+     * @param {TimestampBulkRequest} timestampBulkRequest DTO for the bulk hash submission. Add all relevant information concerning your hash submissions.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BulkApi
+     */
+    public createBulkTimestamp(authorization: string, timestampBulkRequest: TimestampBulkRequest, options?: any) {
+        return BulkApiFp(this.configuration).createBulkTimestamp(authorization, timestampBulkRequest, options)(this.fetch, this.basePath);
+    }
+
+    /**
+     * With this interface you can request the status for a certain seed. This is used when checking the status of previously submitted hashes and avoids sending individual status requests for each hash.
+     * @summary Seed Status
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
+     * @param {string} seedId ID of the timestamp seed
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof BulkApi
+     */
+    public getSeedStatus(authorization: string, seedId: string, options?: any) {
+        return BulkApiFp(this.configuration).getSeedStatus(authorization, seedId, options)(this.fetch, this.basePath);
+    }
+
+}
+
+/**
+ * ProofApi - fetch parameter creator
+ * @export
+ */
+export const ProofApiFetchParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * Generates the download URL for Proof (Seed / Merkle Tree). This interface must be used to obtain the proof or certificate of your tamper-proof timestamp. The parameters are as follows: Cryptocurrency (e.g., Bitcoin, Ethereum,..), type of evidence (e.g., certificate, merkle tree) and the associated hash. The entries are analyzed, e.g., whether a valid timestamp exists for the hash. Then the URL and the filename are returned, with which your proof can be saved. Please note that the download link is only valid for 5 minutes. When using cURL to fetch the proof with the download link make sure to specify \"application/octet-stream\" in the \"Accept\" header.
+         * @summary Proof
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {ProofRequest} proofRequestUrl Information needed to return the proof.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getProof(authorization: string, proofRequestUrl: ProofRequest, options: any = {}): FetchArgs {
+            // verify required parameter 'authorization' is not null or undefined
+            if (authorization === null || authorization === undefined) {
+                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling getProof.');
+            }
+            // verify required parameter 'proofRequestUrl' is not null or undefined
+            if (proofRequestUrl === null || proofRequestUrl === undefined) {
+                throw new RequiredError('proofRequestUrl','Required parameter proofRequestUrl was null or undefined when calling getProof.');
+            }
+            const localVarPath = `/v3/timestamp/proof/url`;
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+            const needsSerialization = (<any>"ProofRequest" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(proofRequestUrl || {}) : (proofRequestUrl || "");
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * ProofApi - functional programming interface
+ * @export
+ */
+export const ProofApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * Generates the download URL for Proof (Seed / Merkle Tree). This interface must be used to obtain the proof or certificate of your tamper-proof timestamp. The parameters are as follows: Cryptocurrency (e.g., Bitcoin, Ethereum,..), type of evidence (e.g., certificate, merkle tree) and the associated hash. The entries are analyzed, e.g., whether a valid timestamp exists for the hash. Then the URL and the filename are returned, with which your proof can be saved. Please note that the download link is only valid for 5 minutes. When using cURL to fetch the proof with the download link make sure to specify \"application/octet-stream\" in the \"Accept\" header.
+         * @summary Proof
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {ProofRequest} proofRequestUrl Information needed to return the proof.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getProof(authorization: string, proofRequestUrl: ProofRequest, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultOfDownloadLinkResponse> {
+            const localVarFetchArgs = ProofApiFetchParamCreator(configuration).getProof(authorization, proofRequestUrl, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+    }
+};
+
+/**
+ * ProofApi - factory interface
+ * @export
+ */
+export const ProofApiFactory = function (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) {
+    return {
+        /**
+         * Generates the download URL for Proof (Seed / Merkle Tree). This interface must be used to obtain the proof or certificate of your tamper-proof timestamp. The parameters are as follows: Cryptocurrency (e.g., Bitcoin, Ethereum,..), type of evidence (e.g., certificate, merkle tree) and the associated hash. The entries are analyzed, e.g., whether a valid timestamp exists for the hash. Then the URL and the filename are returned, with which your proof can be saved. Please note that the download link is only valid for 5 minutes. When using cURL to fetch the proof with the download link make sure to specify \"application/octet-stream\" in the \"Accept\" header.
+         * @summary Proof
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {ProofRequest} proofRequestUrl Information needed to return the proof.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getProof(authorization: string, proofRequestUrl: ProofRequest, options?: any) {
+            return ProofApiFp(configuration).getProof(authorization, proofRequestUrl, options)(fetch, basePath);
+        },
+    };
+};
+
+/**
+ * ProofApi - object-oriented interface
+ * @export
+ * @class ProofApi
+ * @extends {BaseAPI}
+ */
+export class ProofApi extends BaseAPI {
+    /**
+     * Generates the download URL for Proof (Seed / Merkle Tree). This interface must be used to obtain the proof or certificate of your tamper-proof timestamp. The parameters are as follows: Cryptocurrency (e.g., Bitcoin, Ethereum,..), type of evidence (e.g., certificate, merkle tree) and the associated hash. The entries are analyzed, e.g., whether a valid timestamp exists for the hash. Then the URL and the filename are returned, with which your proof can be saved. Please note that the download link is only valid for 5 minutes. When using cURL to fetch the proof with the download link make sure to specify \"application/octet-stream\" in the \"Accept\" header.
+     * @summary Proof
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
+     * @param {ProofRequest} proofRequestUrl Information needed to return the proof.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof ProofApi
+     */
+    public getProof(authorization: string, proofRequestUrl: ProofRequest, options?: any) {
+        return ProofApiFp(this.configuration).getProof(authorization, proofRequestUrl, options)(this.fetch, this.basePath);
+    }
+
+}
 
 /**
  * SchedulerApi - fetch parameter creator
@@ -528,40 +1118,40 @@ export interface WebhookRequest {
 export const SchedulerApiFetchParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Get the next scheduling time for hash submissions to the blockchain.
-         * @summary NextSchedule
+         * Returns an array with all active currencies.
+         * @summary Get active currencies
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {SchedulerRequest} schedulerRequest Request DTO for next schedules.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getNextSchedulingTime(authorization: string, schedulerRequest: SchedulerRequest, options: any = {}): FetchArgs {
+        getActiveCurrencies(authorization: string, options: any = {}): FetchArgs {
             // verify required parameter 'authorization' is not null or undefined
             if (authorization === null || authorization === undefined) {
-                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling getNextSchedulingTime.');
+                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling getActiveCurrencies.');
             }
-            // verify required parameter 'schedulerRequest' is not null or undefined
-            if (schedulerRequest === null || schedulerRequest === undefined) {
-                throw new RequiredError('schedulerRequest','Required parameter schedulerRequest was null or undefined when calling getNextSchedulingTime.');
-            }
-            const localVarPath = `/v3/submission/times`;
+            const localVarPath = `/v3/currencies/get`;
             const localVarUrlObj = url.parse(localVarPath, true);
-            const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
+            const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
 
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
             }
 
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (<any>"SchedulerRequest" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(schedulerRequest || {}) : (schedulerRequest || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -578,15 +1168,14 @@ export const SchedulerApiFetchParamCreator = function (configuration?: Configura
 export const SchedulerApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * Get the next scheduling time for hash submissions to the blockchain.
-         * @summary NextSchedule
+         * Returns an array with all active currencies.
+         * @summary Get active currencies
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {SchedulerRequest} schedulerRequest Request DTO for next schedules.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getNextSchedulingTime(authorization: string, schedulerRequest: SchedulerRequest, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultSchedulerResponse> {
-            const localVarFetchArgs = SchedulerApiFetchParamCreator(configuration).getNextSchedulingTime(authorization, schedulerRequest, options);
+        getActiveCurrencies(authorization: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultOfListOfCurrencyModel> {
+            const localVarFetchArgs = SchedulerApiFetchParamCreator(configuration).getActiveCurrencies(authorization, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
@@ -607,15 +1196,14 @@ export const SchedulerApiFp = function(configuration?: Configuration) {
 export const SchedulerApiFactory = function (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) {
     return {
         /**
-         * Get the next scheduling time for hash submissions to the blockchain.
-         * @summary NextSchedule
+         * Returns an array with all active currencies.
+         * @summary Get active currencies
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {SchedulerRequest} schedulerRequest Request DTO for next schedules.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getNextSchedulingTime(authorization: string, schedulerRequest: SchedulerRequest, options?: any) {
-            return SchedulerApiFp(configuration).getNextSchedulingTime(authorization, schedulerRequest, options)(fetch, basePath);
+        getActiveCurrencies(authorization: string, options?: any) {
+            return SchedulerApiFp(configuration).getActiveCurrencies(authorization, options)(fetch, basePath);
         },
     };
 };
@@ -628,16 +1216,15 @@ export const SchedulerApiFactory = function (configuration?: Configuration, fetc
  */
 export class SchedulerApi extends BaseAPI {
     /**
-     * Get the next scheduling time for hash submissions to the blockchain.
-     * @summary NextSchedule
-     * @param {} authorization A valid API key is essential for authorization to handle the request.
-     * @param {} schedulerRequest Request DTO for next schedules.
+     * Returns an array with all active currencies.
+     * @summary Get active currencies
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof SchedulerApi
      */
-    public getNextSchedulingTime(authorization: string, schedulerRequest: SchedulerRequest, options?: any) {
-        return SchedulerApiFp(this.configuration).getNextSchedulingTime(authorization, schedulerRequest, options)(this.fetch, this.basePath);
+    public getActiveCurrencies(authorization: string, options?: any) {
+        return SchedulerApiFp(this.configuration).getActiveCurrencies(authorization, options)(this.fetch, this.basePath);
     }
 
 }
@@ -649,7 +1236,7 @@ export class SchedulerApi extends BaseAPI {
 export const TimestampApiFetchParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * You can submit your hash with this function. If your api key is valid, your hash is added to batch and is scheduled for timestamping. If the hash already exists, the created flag in the response is set to false and the notification(s) of the current request will be totally ignored. You are also able to submit additional information, such as comment or notification credentials. Once a hash is successfully created for a certain crypto-currency, we can notify your desired target with the timestamp information (POST Request). The webhook is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. Additionally, it is possible to include a preprint URL in the hash submission. Before the generation of the timestamp hash you can create a random UUID Version 4 and include https://originstamp.com/u/UUID where UUID is your UUID e.g. in a document you want to timestamp. In the preprint URL field you include your UUID and then it is possible to verify the timestamp within the document (or whatever). 
+         * With this interface you can submit your hash. If your API key is valid, your hash is added  seeds and scheduled for timestamping. You are also able to submit additional information, such as a comment or notification target. If the hash already exists, the 'created' field in the response is set to 'false' and any notification(s) for this hash will be ignored. To later query the status of the hash for a certain blockchain you can use the 'seed_id' field of its inner timestamp structure. This field can be used to query the timestamping status of the selected seed. This is recommended if a large number of hashes were transmitted in a certain time frame. Once a hash is successfully created for a certain crypto currency, we can notify your desired target with the timestamp information (via POST Request). A webhook is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. 
          * @summary Submission
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
          * @param {TimestampRequest} timestampRequest DTO for the hash submission. Add all relevant information concerning your hash submission.
@@ -665,16 +1252,25 @@ export const TimestampApiFetchParamCreator = function (configuration?: Configura
             if (timestampRequest === null || timestampRequest === undefined) {
                 throw new RequiredError('timestampRequest','Required parameter timestampRequest was null or undefined when calling createTimestamp.');
             }
-            const localVarPath = `/v3/timestamp/create`;
+            const localVarPath = `/v4/timestamp/create`;
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
             }
 
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
@@ -690,39 +1286,7 @@ export const TimestampApiFetchParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * With this interface you can receive the current api usage.
-         * @summary Usage
-         * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getApiKeyUsage(authorization: string, options: any = {}): FetchArgs {
-            // verify required parameter 'authorization' is not null or undefined
-            if (authorization === null || authorization === undefined) {
-                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling getApiKeyUsage.');
-            }
-            const localVarPath = `/v3/api_key/usage`;
-            const localVarUrlObj = url.parse(localVarPath, true);
-            const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-
-            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-
-            return {
-                url: url.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * The request returns information of a certain hash read from the URL parameter. The input parameter is a hash in hex representation. Field \"created\" always set to false.
+         * This interface returns information of a certain hash read from the URL path. If the status of several hashes is to be checked, it is preferable to use the seed status interface. This reduces the required requests and can be tailored to a desired blockchain. All 'created' fields are always set to false for a status request.
          * @summary Status
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
          * @param {string} hashString The hash in string representation.
@@ -738,17 +1302,26 @@ export const TimestampApiFetchParamCreator = function (configuration?: Configura
             if (hashString === null || hashString === undefined) {
                 throw new RequiredError('hashString','Required parameter hashString was null or undefined when calling getHashStatus.');
             }
-            const localVarPath = `/v3/timestamp/{hash_string}`
+            const localVarPath = `/v4/timestamp/{hash_string}`
                 .replace(`{${"hash_string"}}`, encodeURIComponent(String(hashString)));
             const localVarUrlObj = url.parse(localVarPath, true);
             const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
             }
 
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
@@ -760,81 +1333,46 @@ export const TimestampApiFetchParamCreator = function (configuration?: Configura
             };
         },
         /**
-         * This request can be used to proof a submission of a hash. This interface is required to request the evidence. With the help of this proof the verification of a timestamp independent from OriginStamp is necessary. A guide for the verification can be found herehttps://github.com/OriginStampTimestamping/originstamp-verification . Usually, the proof should be requested for each transferred hash and kept with the timestamped data so that an independent verification of the timestamp is possible at any time. As input, the used currency, the hash string and the type of proof is required. Then a file with the information for the submission proof will be returned. If the hash was submitted in an API version lower than 3, a XML file containing the essential information of the Merkle Tree will be returned. Otherwise, the seed file will be returned.  The file name can be found in the header of the response. An example could look like this: content-disposition: attachment; filename=\"certificate_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.pdf\" A sample XML file can be found here https://originstamp.org/assets/proof/proof_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.xml and a sample PDF can be found here https://originstamp.org/assets/proof/certificate_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.pdf .
-         * @summary Proof
+         * With this interface you can request the status for a certain seed. This is used when checking the status of previously submitted hashes and avoids sending individual status requests for each hash.
+         * @summary Seed Status
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {ProofRequest} proofRequest Information needed to return the hash status information.
+         * @param {string} seedId ID of the timestamp seed
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProof(authorization: string, proofRequest: ProofRequest, options: any = {}): FetchArgs {
+        getSeedStatus(authorization: string, seedId: string, options: any = {}): FetchArgs {
             // verify required parameter 'authorization' is not null or undefined
             if (authorization === null || authorization === undefined) {
-                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling getProof.');
+                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling getSeedStatus.');
             }
-            // verify required parameter 'proofRequest' is not null or undefined
-            if (proofRequest === null || proofRequest === undefined) {
-                throw new RequiredError('proofRequest','Required parameter proofRequest was null or undefined when calling getProof.');
+            // verify required parameter 'seedId' is not null or undefined
+            if (seedId === null || seedId === undefined) {
+                throw new RequiredError('seedId','Required parameter seedId was null or undefined when calling getSeedStatus.');
             }
-            const localVarPath = `/v3/timestamp/proof`;
+            const localVarPath = `/v4/timestamp/status/seed/{seed_id}`
+                .replace(`{${"seed_id"}}`, encodeURIComponent(String(seedId)));
             const localVarUrlObj = url.parse(localVarPath, true);
-            const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
+            const localVarRequestOptions = Object.assign({ method: 'GET' }, options);
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
+
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
 
             if (authorization !== undefined && authorization !== null) {
                 localVarHeaderParameter['Authorization'] = String(authorization);
             }
 
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
             localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
             // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
             delete localVarUrlObj.search;
             localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (<any>"ProofRequest" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(proofRequest || {}) : (proofRequest || "");
-
-            return {
-                url: url.format(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
-        /**
-         * With this interface you can trigger manual webhook to see how a webhooks looks like. Please use a hash, that was already timestamped before such as https://originstamp.org/s/9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 . Usually, the webhook is triggered as soon as the tamper-proof time stamp with the selected crypto currency has been created.
-         * @summary Dev
-         * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {WebhookRequest} webhookRequest DTO for webhook request.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        triggerTimestampWebhook(authorization: string, webhookRequest: WebhookRequest, options: any = {}): FetchArgs {
-            // verify required parameter 'authorization' is not null or undefined
-            if (authorization === null || authorization === undefined) {
-                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling triggerTimestampWebhook.');
-            }
-            // verify required parameter 'webhookRequest' is not null or undefined
-            if (webhookRequest === null || webhookRequest === undefined) {
-                throw new RequiredError('webhookRequest','Required parameter webhookRequest was null or undefined when calling triggerTimestampWebhook.');
-            }
-            const localVarPath = `/v3/webhook/start`;
-            const localVarUrlObj = url.parse(localVarPath, true);
-            const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            if (authorization !== undefined && authorization !== null) {
-                localVarHeaderParameter['Authorization'] = String(authorization);
-            }
-
-            localVarHeaderParameter['Content-Type'] = 'application/json';
-
-            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
-            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
-            delete localVarUrlObj.search;
-            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
-            const needsSerialization = (<any>"WebhookRequest" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
-            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(webhookRequest || {}) : (webhookRequest || "");
 
             return {
                 url: url.format(localVarUrlObj),
@@ -851,14 +1389,14 @@ export const TimestampApiFetchParamCreator = function (configuration?: Configura
 export const TimestampApiFp = function(configuration?: Configuration) {
     return {
         /**
-         * You can submit your hash with this function. If your api key is valid, your hash is added to batch and is scheduled for timestamping. If the hash already exists, the created flag in the response is set to false and the notification(s) of the current request will be totally ignored. You are also able to submit additional information, such as comment or notification credentials. Once a hash is successfully created for a certain crypto-currency, we can notify your desired target with the timestamp information (POST Request). The webhook is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. Additionally, it is possible to include a preprint URL in the hash submission. Before the generation of the timestamp hash you can create a random UUID Version 4 and include https://originstamp.com/u/UUID where UUID is your UUID e.g. in a document you want to timestamp. In the preprint URL field you include your UUID and then it is possible to verify the timestamp within the document (or whatever). 
+         * With this interface you can submit your hash. If your API key is valid, your hash is added  seeds and scheduled for timestamping. You are also able to submit additional information, such as a comment or notification target. If the hash already exists, the 'created' field in the response is set to 'false' and any notification(s) for this hash will be ignored. To later query the status of the hash for a certain blockchain you can use the 'seed_id' field of its inner timestamp structure. This field can be used to query the timestamping status of the selected seed. This is recommended if a large number of hashes were transmitted in a certain time frame. Once a hash is successfully created for a certain crypto currency, we can notify your desired target with the timestamp information (via POST Request). A webhook is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. 
          * @summary Submission
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
          * @param {TimestampRequest} timestampRequest DTO for the hash submission. Add all relevant information concerning your hash submission.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createTimestamp(authorization: string, timestampRequest: TimestampRequest, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultTimestampResponse> {
+        createTimestamp(authorization: string, timestampRequest: TimestampRequest, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultOfTimestampResponse> {
             const localVarFetchArgs = TimestampApiFetchParamCreator(configuration).createTimestamp(authorization, timestampRequest, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
@@ -871,33 +1409,14 @@ export const TimestampApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * With this interface you can receive the current api usage.
-         * @summary Usage
-         * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getApiKeyUsage(authorization: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultUsageResponse> {
-            const localVarFetchArgs = TimestampApiFetchParamCreator(configuration).getApiKeyUsage(authorization, options);
-            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    } else {
-                        throw response;
-                    }
-                });
-            };
-        },
-        /**
-         * The request returns information of a certain hash read from the URL parameter. The input parameter is a hash in hex representation. Field \"created\" always set to false.
+         * This interface returns information of a certain hash read from the URL path. If the status of several hashes is to be checked, it is preferable to use the seed status interface. This reduces the required requests and can be tailored to a desired blockchain. All 'created' fields are always set to false for a status request.
          * @summary Status
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
          * @param {string} hashString The hash in string representation.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getHashStatus(authorization: string, hashString: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultTimestampResponse> {
+        getHashStatus(authorization: string, hashString: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultOfTimestampResponse> {
             const localVarFetchArgs = TimestampApiFetchParamCreator(configuration).getHashStatus(authorization, hashString, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
@@ -910,35 +1429,15 @@ export const TimestampApiFp = function(configuration?: Configuration) {
             };
         },
         /**
-         * This request can be used to proof a submission of a hash. This interface is required to request the evidence. With the help of this proof the verification of a timestamp independent from OriginStamp is necessary. A guide for the verification can be found herehttps://github.com/OriginStampTimestamping/originstamp-verification . Usually, the proof should be requested for each transferred hash and kept with the timestamped data so that an independent verification of the timestamp is possible at any time. As input, the used currency, the hash string and the type of proof is required. Then a file with the information for the submission proof will be returned. If the hash was submitted in an API version lower than 3, a XML file containing the essential information of the Merkle Tree will be returned. Otherwise, the seed file will be returned.  The file name can be found in the header of the response. An example could look like this: content-disposition: attachment; filename=\"certificate_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.pdf\" A sample XML file can be found here https://originstamp.org/assets/proof/proof_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.xml and a sample PDF can be found here https://originstamp.org/assets/proof/certificate_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.pdf .
-         * @summary Proof
+         * With this interface you can request the status for a certain seed. This is used when checking the status of previously submitted hashes and avoids sending individual status requests for each hash.
+         * @summary Seed Status
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {ProofRequest} proofRequest Information needed to return the hash status information.
+         * @param {string} seedId ID of the timestamp seed
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProof(authorization: string, proofRequest: ProofRequest, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<string> {
-            const localVarFetchArgs = TimestampApiFetchParamCreator(configuration).getProof(authorization, proofRequest, options);
-            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
-                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
-                    if (response.status >= 200 && response.status < 300) {
-                        return response.json();
-                    } else {
-                        throw response;
-                    }
-                });
-            };
-        },
-        /**
-         * With this interface you can trigger manual webhook to see how a webhooks looks like. Please use a hash, that was already timestamped before such as https://originstamp.org/s/9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 . Usually, the webhook is triggered as soon as the tamper-proof time stamp with the selected crypto currency has been created.
-         * @summary Dev
-         * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {WebhookRequest} webhookRequest DTO for webhook request.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        triggerTimestampWebhook(authorization: string, webhookRequest: WebhookRequest, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<Defaultstring> {
-            const localVarFetchArgs = TimestampApiFetchParamCreator(configuration).triggerTimestampWebhook(authorization, webhookRequest, options);
+        getSeedStatus(authorization: string, seedId: string, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultOfTimestampData> {
+            const localVarFetchArgs = TimestampApiFetchParamCreator(configuration).getSeedStatus(authorization, seedId, options);
             return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
                 return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
                     if (response.status >= 200 && response.status < 300) {
@@ -959,7 +1458,7 @@ export const TimestampApiFp = function(configuration?: Configuration) {
 export const TimestampApiFactory = function (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) {
     return {
         /**
-         * You can submit your hash with this function. If your api key is valid, your hash is added to batch and is scheduled for timestamping. If the hash already exists, the created flag in the response is set to false and the notification(s) of the current request will be totally ignored. You are also able to submit additional information, such as comment or notification credentials. Once a hash is successfully created for a certain crypto-currency, we can notify your desired target with the timestamp information (POST Request). The webhook is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. Additionally, it is possible to include a preprint URL in the hash submission. Before the generation of the timestamp hash you can create a random UUID Version 4 and include https://originstamp.com/u/UUID where UUID is your UUID e.g. in a document you want to timestamp. In the preprint URL field you include your UUID and then it is possible to verify the timestamp within the document (or whatever). 
+         * With this interface you can submit your hash. If your API key is valid, your hash is added  seeds and scheduled for timestamping. You are also able to submit additional information, such as a comment or notification target. If the hash already exists, the 'created' field in the response is set to 'false' and any notification(s) for this hash will be ignored. To later query the status of the hash for a certain blockchain you can use the 'seed_id' field of its inner timestamp structure. This field can be used to query the timestamping status of the selected seed. This is recommended if a large number of hashes were transmitted in a certain time frame. Once a hash is successfully created for a certain crypto currency, we can notify your desired target with the timestamp information (via POST Request). A webhook is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. 
          * @summary Submission
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
          * @param {TimestampRequest} timestampRequest DTO for the hash submission. Add all relevant information concerning your hash submission.
@@ -970,17 +1469,7 @@ export const TimestampApiFactory = function (configuration?: Configuration, fetc
             return TimestampApiFp(configuration).createTimestamp(authorization, timestampRequest, options)(fetch, basePath);
         },
         /**
-         * With this interface you can receive the current api usage.
-         * @summary Usage
-         * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        getApiKeyUsage(authorization: string, options?: any) {
-            return TimestampApiFp(configuration).getApiKeyUsage(authorization, options)(fetch, basePath);
-        },
-        /**
-         * The request returns information of a certain hash read from the URL parameter. The input parameter is a hash in hex representation. Field \"created\" always set to false.
+         * This interface returns information of a certain hash read from the URL path. If the status of several hashes is to be checked, it is preferable to use the seed status interface. This reduces the required requests and can be tailored to a desired blockchain. All 'created' fields are always set to false for a status request.
          * @summary Status
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
          * @param {string} hashString The hash in string representation.
@@ -991,26 +1480,15 @@ export const TimestampApiFactory = function (configuration?: Configuration, fetc
             return TimestampApiFp(configuration).getHashStatus(authorization, hashString, options)(fetch, basePath);
         },
         /**
-         * This request can be used to proof a submission of a hash. This interface is required to request the evidence. With the help of this proof the verification of a timestamp independent from OriginStamp is necessary. A guide for the verification can be found herehttps://github.com/OriginStampTimestamping/originstamp-verification . Usually, the proof should be requested for each transferred hash and kept with the timestamped data so that an independent verification of the timestamp is possible at any time. As input, the used currency, the hash string and the type of proof is required. Then a file with the information for the submission proof will be returned. If the hash was submitted in an API version lower than 3, a XML file containing the essential information of the Merkle Tree will be returned. Otherwise, the seed file will be returned.  The file name can be found in the header of the response. An example could look like this: content-disposition: attachment; filename=\"certificate_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.pdf\" A sample XML file can be found here https://originstamp.org/assets/proof/proof_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.xml and a sample PDF can be found here https://originstamp.org/assets/proof/certificate_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.pdf .
-         * @summary Proof
+         * With this interface you can request the status for a certain seed. This is used when checking the status of previously submitted hashes and avoids sending individual status requests for each hash.
+         * @summary Seed Status
          * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {ProofRequest} proofRequest Information needed to return the hash status information.
+         * @param {string} seedId ID of the timestamp seed
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getProof(authorization: string, proofRequest: ProofRequest, options?: any) {
-            return TimestampApiFp(configuration).getProof(authorization, proofRequest, options)(fetch, basePath);
-        },
-        /**
-         * With this interface you can trigger manual webhook to see how a webhooks looks like. Please use a hash, that was already timestamped before such as https://originstamp.org/s/9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 . Usually, the webhook is triggered as soon as the tamper-proof time stamp with the selected crypto currency has been created.
-         * @summary Dev
-         * @param {string} authorization A valid API key is essential for authorization to handle the request.
-         * @param {WebhookRequest} webhookRequest DTO for webhook request.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        triggerTimestampWebhook(authorization: string, webhookRequest: WebhookRequest, options?: any) {
-            return TimestampApiFp(configuration).triggerTimestampWebhook(authorization, webhookRequest, options)(fetch, basePath);
+        getSeedStatus(authorization: string, seedId: string, options?: any) {
+            return TimestampApiFp(configuration).getSeedStatus(authorization, seedId, options)(fetch, basePath);
         },
     };
 };
@@ -1023,10 +1501,10 @@ export const TimestampApiFactory = function (configuration?: Configuration, fetc
  */
 export class TimestampApi extends BaseAPI {
     /**
-     * You can submit your hash with this function. If your api key is valid, your hash is added to batch and is scheduled for timestamping. If the hash already exists, the created flag in the response is set to false and the notification(s) of the current request will be totally ignored. You are also able to submit additional information, such as comment or notification credentials. Once a hash is successfully created for a certain crypto-currency, we can notify your desired target with the timestamp information (POST Request). The webhook is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. Additionally, it is possible to include a preprint URL in the hash submission. Before the generation of the timestamp hash you can create a random UUID Version 4 and include https://originstamp.com/u/UUID where UUID is your UUID e.g. in a document you want to timestamp. In the preprint URL field you include your UUID and then it is possible to verify the timestamp within the document (or whatever). 
+     * With this interface you can submit your hash. If your API key is valid, your hash is added  seeds and scheduled for timestamping. You are also able to submit additional information, such as a comment or notification target. If the hash already exists, the 'created' field in the response is set to 'false' and any notification(s) for this hash will be ignored. To later query the status of the hash for a certain blockchain you can use the 'seed_id' field of its inner timestamp structure. This field can be used to query the timestamping status of the selected seed. This is recommended if a large number of hashes were transmitted in a certain time frame. Once a hash is successfully created for a certain crypto currency, we can notify your desired target with the timestamp information (via POST Request). A webhook is triggered as soon as the tamper-proof timestamp with the selected crypto currency has been created. 
      * @summary Submission
-     * @param {} authorization A valid API key is essential for authorization to handle the request.
-     * @param {} timestampRequest DTO for the hash submission. Add all relevant information concerning your hash submission.
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
+     * @param {TimestampRequest} timestampRequest DTO for the hash submission. Add all relevant information concerning your hash submission.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimestampApi
@@ -1036,22 +1514,10 @@ export class TimestampApi extends BaseAPI {
     }
 
     /**
-     * With this interface you can receive the current api usage.
-     * @summary Usage
-     * @param {} authorization A valid API key is essential for authorization to handle the request.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof TimestampApi
-     */
-    public getApiKeyUsage(authorization: string, options?: any) {
-        return TimestampApiFp(this.configuration).getApiKeyUsage(authorization, options)(this.fetch, this.basePath);
-    }
-
-    /**
-     * The request returns information of a certain hash read from the URL parameter. The input parameter is a hash in hex representation. Field \"created\" always set to false.
+     * This interface returns information of a certain hash read from the URL path. If the status of several hashes is to be checked, it is preferable to use the seed status interface. This reduces the required requests and can be tailored to a desired blockchain. All 'created' fields are always set to false for a status request.
      * @summary Status
-     * @param {} authorization A valid API key is essential for authorization to handle the request.
-     * @param {} hashString The hash in string representation.
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
+     * @param {string} hashString The hash in string representation.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimestampApi
@@ -1061,29 +1527,334 @@ export class TimestampApi extends BaseAPI {
     }
 
     /**
-     * This request can be used to proof a submission of a hash. This interface is required to request the evidence. With the help of this proof the verification of a timestamp independent from OriginStamp is necessary. A guide for the verification can be found herehttps://github.com/OriginStampTimestamping/originstamp-verification . Usually, the proof should be requested for each transferred hash and kept with the timestamped data so that an independent verification of the timestamp is possible at any time. As input, the used currency, the hash string and the type of proof is required. Then a file with the information for the submission proof will be returned. If the hash was submitted in an API version lower than 3, a XML file containing the essential information of the Merkle Tree will be returned. Otherwise, the seed file will be returned.  The file name can be found in the header of the response. An example could look like this: content-disposition: attachment; filename=\"certificate_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.pdf\" A sample XML file can be found here https://originstamp.org/assets/proof/proof_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.xml and a sample PDF can be found here https://originstamp.org/assets/proof/certificate_6d70a947e19398f1106ad70a60bd34a8305bdcb624b5b7d43782315517e79cad.pdf .
-     * @summary Proof
-     * @param {} authorization A valid API key is essential for authorization to handle the request.
-     * @param {} proofRequest Information needed to return the hash status information.
+     * With this interface you can request the status for a certain seed. This is used when checking the status of previously submitted hashes and avoids sending individual status requests for each hash.
+     * @summary Seed Status
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
+     * @param {string} seedId ID of the timestamp seed
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof TimestampApi
      */
-    public getProof(authorization: string, proofRequest: ProofRequest, options?: any) {
-        return TimestampApiFp(this.configuration).getProof(authorization, proofRequest, options)(this.fetch, this.basePath);
+    public getSeedStatus(authorization: string, seedId: string, options?: any) {
+        return TimestampApiFp(this.configuration).getSeedStatus(authorization, seedId, options)(this.fetch, this.basePath);
+    }
+
+}
+
+/**
+ * WebhookApi - fetch parameter creator
+ * @export
+ */
+export const WebhookApiFetchParamCreator = function (configuration?: Configuration) {
+    return {
+        /**
+         * RESTful interface to receive the status of a webhook. Based on the input parameters (target URL, hash and currency), we look up the most recent entry in the notification queue.This method is intended to support the webhook integration.
+         * @summary Webhook
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {WebhookRequest} webhookRequest DTO for registering webhook information.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWebhookStatus(authorization: string, webhookRequest: WebhookRequest, options: any = {}): FetchArgs {
+            // verify required parameter 'authorization' is not null or undefined
+            if (authorization === null || authorization === undefined) {
+                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling getWebhookStatus.');
+            }
+            // verify required parameter 'webhookRequest' is not null or undefined
+            if (webhookRequest === null || webhookRequest === undefined) {
+                throw new RequiredError('webhookRequest','Required parameter webhookRequest was null or undefined when calling getWebhookStatus.');
+            }
+            const localVarPath = `/v3/webhook/information`;
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+            const needsSerialization = (<any>"WebhookRequest" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(webhookRequest || {}) : (webhookRequest || "");
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Method which allows a subscription for a webhook notification. If this method is called, a new entry is added to notification queue that is triggered as soon as a tamper-proof timestamp or the hash is created. An empty data payload means that the entry was created successfully.
+         * @summary Webhook
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {WebhookRequest} webhookRequest DTO for querying webhook information.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerWebhookNotification(authorization: string, webhookRequest: WebhookRequest, options: any = {}): FetchArgs {
+            // verify required parameter 'authorization' is not null or undefined
+            if (authorization === null || authorization === undefined) {
+                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling registerWebhookNotification.');
+            }
+            // verify required parameter 'webhookRequest' is not null or undefined
+            if (webhookRequest === null || webhookRequest === undefined) {
+                throw new RequiredError('webhookRequest','Required parameter webhookRequest was null or undefined when calling registerWebhookNotification.');
+            }
+            const localVarPath = `/v3/webhook/register`;
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+            const needsSerialization = (<any>"WebhookRequest" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(webhookRequest || {}) : (webhookRequest || "");
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * With this interface you can trigger manual webhook to see how a webhook looks like. Please use a hash, that was already timestamped before such as https://redir.originstamp.com/hash/9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 . Usually, the webhook is triggered as soon as the tamper-proof time stamp with the selected crypto currency has been created.
+         * @summary Dev
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {ManualWebhookRequest} manualWebhookRequest DTO for webhook request.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        triggerTimestampWebhook(authorization: string, manualWebhookRequest: ManualWebhookRequest, options: any = {}): FetchArgs {
+            // verify required parameter 'authorization' is not null or undefined
+            if (authorization === null || authorization === undefined) {
+                throw new RequiredError('authorization','Required parameter authorization was null or undefined when calling triggerTimestampWebhook.');
+            }
+            // verify required parameter 'manualWebhookRequest' is not null or undefined
+            if (manualWebhookRequest === null || manualWebhookRequest === undefined) {
+                throw new RequiredError('manualWebhookRequest','Required parameter manualWebhookRequest was null or undefined when calling triggerTimestampWebhook.');
+            }
+            const localVarPath = `/v3/webhook/start`;
+            const localVarUrlObj = url.parse(localVarPath, true);
+            const localVarRequestOptions = Object.assign({ method: 'POST' }, options);
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication API Key Authorization required
+            if (configuration && configuration.apiKey) {
+                const localVarApiKeyValue = typeof configuration.apiKey === 'function'
+					? configuration.apiKey("Authorization")
+					: configuration.apiKey;
+                localVarHeaderParameter["Authorization"] = localVarApiKeyValue;
+            }
+
+            if (authorization !== undefined && authorization !== null) {
+                localVarHeaderParameter['Authorization'] = String(authorization);
+            }
+
+            localVarHeaderParameter['User-Agent'] = 'OriginStamp Client TypeScript/2.0 (Fetch)';
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            localVarUrlObj.query = Object.assign({}, localVarUrlObj.query, localVarQueryParameter, options.query);
+            // fix override query string Detail: https://stackoverflow.com/a/7517673/1077943
+            delete localVarUrlObj.search;
+            localVarRequestOptions.headers = Object.assign({}, localVarHeaderParameter, options.headers);
+            const needsSerialization = (<any>"ManualWebhookRequest" !== "string") || localVarRequestOptions.headers['Content-Type'] === 'application/json';
+            localVarRequestOptions.body =  needsSerialization ? JSON.stringify(manualWebhookRequest || {}) : (manualWebhookRequest || "");
+
+            return {
+                url: url.format(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+    }
+};
+
+/**
+ * WebhookApi - functional programming interface
+ * @export
+ */
+export const WebhookApiFp = function(configuration?: Configuration) {
+    return {
+        /**
+         * RESTful interface to receive the status of a webhook. Based on the input parameters (target URL, hash and currency), we look up the most recent entry in the notification queue.This method is intended to support the webhook integration.
+         * @summary Webhook
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {WebhookRequest} webhookRequest DTO for registering webhook information.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWebhookStatus(authorization: string, webhookRequest: WebhookRequest, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultOfWebhookResponse> {
+            const localVarFetchArgs = WebhookApiFetchParamCreator(configuration).getWebhookStatus(authorization, webhookRequest, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+        /**
+         * Method which allows a subscription for a webhook notification. If this method is called, a new entry is added to notification queue that is triggered as soon as a tamper-proof timestamp or the hash is created. An empty data payload means that the entry was created successfully.
+         * @summary Webhook
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {WebhookRequest} webhookRequest DTO for querying webhook information.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerWebhookNotification(authorization: string, webhookRequest: WebhookRequest, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultOfVoid> {
+            const localVarFetchArgs = WebhookApiFetchParamCreator(configuration).registerWebhookNotification(authorization, webhookRequest, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+        /**
+         * With this interface you can trigger manual webhook to see how a webhook looks like. Please use a hash, that was already timestamped before such as https://redir.originstamp.com/hash/9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 . Usually, the webhook is triggered as soon as the tamper-proof time stamp with the selected crypto currency has been created.
+         * @summary Dev
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {ManualWebhookRequest} manualWebhookRequest DTO for webhook request.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        triggerTimestampWebhook(authorization: string, manualWebhookRequest: ManualWebhookRequest, options?: any): (fetch?: FetchAPI, basePath?: string) => Promise<DefaultOfstring> {
+            const localVarFetchArgs = WebhookApiFetchParamCreator(configuration).triggerTimestampWebhook(authorization, manualWebhookRequest, options);
+            return (fetch: FetchAPI = portableFetch, basePath: string = BASE_PATH) => {
+                return fetch(basePath + localVarFetchArgs.url, localVarFetchArgs.options).then((response) => {
+                    if (response.status >= 200 && response.status < 300) {
+                        return response.json();
+                    } else {
+                        throw response;
+                    }
+                });
+            };
+        },
+    }
+};
+
+/**
+ * WebhookApi - factory interface
+ * @export
+ */
+export const WebhookApiFactory = function (configuration?: Configuration, fetch?: FetchAPI, basePath?: string) {
+    return {
+        /**
+         * RESTful interface to receive the status of a webhook. Based on the input parameters (target URL, hash and currency), we look up the most recent entry in the notification queue.This method is intended to support the webhook integration.
+         * @summary Webhook
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {WebhookRequest} webhookRequest DTO for registering webhook information.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getWebhookStatus(authorization: string, webhookRequest: WebhookRequest, options?: any) {
+            return WebhookApiFp(configuration).getWebhookStatus(authorization, webhookRequest, options)(fetch, basePath);
+        },
+        /**
+         * Method which allows a subscription for a webhook notification. If this method is called, a new entry is added to notification queue that is triggered as soon as a tamper-proof timestamp or the hash is created. An empty data payload means that the entry was created successfully.
+         * @summary Webhook
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {WebhookRequest} webhookRequest DTO for querying webhook information.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        registerWebhookNotification(authorization: string, webhookRequest: WebhookRequest, options?: any) {
+            return WebhookApiFp(configuration).registerWebhookNotification(authorization, webhookRequest, options)(fetch, basePath);
+        },
+        /**
+         * With this interface you can trigger manual webhook to see how a webhook looks like. Please use a hash, that was already timestamped before such as https://redir.originstamp.com/hash/9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 . Usually, the webhook is triggered as soon as the tamper-proof time stamp with the selected crypto currency has been created.
+         * @summary Dev
+         * @param {string} authorization A valid API key is essential for authorization to handle the request.
+         * @param {ManualWebhookRequest} manualWebhookRequest DTO for webhook request.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        triggerTimestampWebhook(authorization: string, manualWebhookRequest: ManualWebhookRequest, options?: any) {
+            return WebhookApiFp(configuration).triggerTimestampWebhook(authorization, manualWebhookRequest, options)(fetch, basePath);
+        },
+    };
+};
+
+/**
+ * WebhookApi - object-oriented interface
+ * @export
+ * @class WebhookApi
+ * @extends {BaseAPI}
+ */
+export class WebhookApi extends BaseAPI {
+    /**
+     * RESTful interface to receive the status of a webhook. Based on the input parameters (target URL, hash and currency), we look up the most recent entry in the notification queue.This method is intended to support the webhook integration.
+     * @summary Webhook
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
+     * @param {WebhookRequest} webhookRequest DTO for registering webhook information.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebhookApi
+     */
+    public getWebhookStatus(authorization: string, webhookRequest: WebhookRequest, options?: any) {
+        return WebhookApiFp(this.configuration).getWebhookStatus(authorization, webhookRequest, options)(this.fetch, this.basePath);
     }
 
     /**
-     * With this interface you can trigger manual webhook to see how a webhooks looks like. Please use a hash, that was already timestamped before such as https://originstamp.org/s/9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 . Usually, the webhook is triggered as soon as the tamper-proof time stamp with the selected crypto currency has been created.
-     * @summary Dev
-     * @param {} authorization A valid API key is essential for authorization to handle the request.
-     * @param {} webhookRequest DTO for webhook request.
+     * Method which allows a subscription for a webhook notification. If this method is called, a new entry is added to notification queue that is triggered as soon as a tamper-proof timestamp or the hash is created. An empty data payload means that the entry was created successfully.
+     * @summary Webhook
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
+     * @param {WebhookRequest} webhookRequest DTO for querying webhook information.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TimestampApi
+     * @memberof WebhookApi
      */
-    public triggerTimestampWebhook(authorization: string, webhookRequest: WebhookRequest, options?: any) {
-        return TimestampApiFp(this.configuration).triggerTimestampWebhook(authorization, webhookRequest, options)(this.fetch, this.basePath);
+    public registerWebhookNotification(authorization: string, webhookRequest: WebhookRequest, options?: any) {
+        return WebhookApiFp(this.configuration).registerWebhookNotification(authorization, webhookRequest, options)(this.fetch, this.basePath);
+    }
+
+    /**
+     * With this interface you can trigger manual webhook to see how a webhook looks like. Please use a hash, that was already timestamped before such as https://redir.originstamp.com/hash/9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08 . Usually, the webhook is triggered as soon as the tamper-proof time stamp with the selected crypto currency has been created.
+     * @summary Dev
+     * @param {string} authorization A valid API key is essential for authorization to handle the request.
+     * @param {ManualWebhookRequest} manualWebhookRequest DTO for webhook request.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof WebhookApi
+     */
+    public triggerTimestampWebhook(authorization: string, manualWebhookRequest: ManualWebhookRequest, options?: any) {
+        return WebhookApiFp(this.configuration).triggerTimestampWebhook(authorization, manualWebhookRequest, options)(this.fetch, this.basePath);
     }
 
 }
