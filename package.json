@@ -1,6 +1,6 @@
 {
   "name": "originstamp-client-fetch",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "TypeScript Fetch client for the OriginStamp service",
   "repository": "https://github.com/OriginStampTimestamping/originstamp-client-typescript-fetch",
   "author": "OriginStamp",
@@ -14,7 +14,7 @@
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc --outDir dist/",
+    "build": "tsc --outDir dist/ --project tsconfig.json",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
