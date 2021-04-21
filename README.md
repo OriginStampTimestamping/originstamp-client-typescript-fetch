@@ -12,7 +12,7 @@ For more information, please visit [https://originstamp.com](https://originstamp
 ## Install
 
 ```
-npm install originstamp-client-fetch@2.0.0 --save
+npm install originstamp-client-fetch@2.0.4 --save
 ```
 
 ## Specifications
