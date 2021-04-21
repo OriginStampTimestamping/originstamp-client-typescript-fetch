@@ -116,13 +116,13 @@ export interface DefaultOfDownloadLinkResponse {
      * @type {number}
      * @memberof DefaultOfDownloadLinkResponse
      */
-    errorCode?: number;
+    error_code?: number;
     /**
      * Contains the error message, that possibly occurred. If it is empty, everything is fine.
      * @type {string}
      * @memberof DefaultOfDownloadLinkResponse
      */
-    errorMessage?: string;
+    error_message?: string;
 }
 
 /**
@@ -142,13 +142,13 @@ export interface DefaultOfListOfCurrencyModel {
      * @type {number}
      * @memberof DefaultOfListOfCurrencyModel
      */
-    errorCode?: number;
+    error_code?: number;
     /**
      * Contains the error message, that possibly occurred. If it is empty, everything is fine.
      * @type {string}
      * @memberof DefaultOfListOfCurrencyModel
      */
-    errorMessage?: string;
+    error_message?: string;
 }
 
 /**
@@ -168,13 +168,13 @@ export interface DefaultOfTimestampData {
      * @type {number}
      * @memberof DefaultOfTimestampData
      */
-    errorCode?: number;
+    error_code?: number;
     /**
      * Contains the error message, that possibly occurred. If it is empty, everything is fine.
      * @type {string}
      * @memberof DefaultOfTimestampData
      */
-    errorMessage?: string;
+    error_message?: string;
 }
 
 /**
@@ -194,13 +194,13 @@ export interface DefaultOfTimestampResponse {
      * @type {number}
      * @memberof DefaultOfTimestampResponse
      */
-    errorCode?: number;
+    error_code?: number;
     /**
      * Contains the error message, that possibly occurred. If it is empty, everything is fine.
      * @type {string}
      * @memberof DefaultOfTimestampResponse
      */
-    errorMessage?: string;
+    error_message?: string;
 }
 
 /**
@@ -214,13 +214,13 @@ export interface DefaultOfVoid {
      * @type {number}
      * @memberof DefaultOfVoid
      */
-    errorCode?: number;
+    error_code?: number;
     /**
      * Contains the error message, that possibly occurred. If it is empty, everything is fine.
      * @type {string}
      * @memberof DefaultOfVoid
      */
-    errorMessage?: string;
+    error_message?: string;
 }
 
 /**
@@ -240,13 +240,13 @@ export interface DefaultOfWebhookResponse {
      * @type {number}
      * @memberof DefaultOfWebhookResponse
      */
-    errorCode?: number;
+    error_code?: number;
     /**
      * Contains the error message, that possibly occurred. If it is empty, everything is fine.
      * @type {string}
      * @memberof DefaultOfWebhookResponse
      */
-    errorMessage?: string;
+    error_message?: string;
 }
 
 /**
@@ -266,13 +266,13 @@ export interface DefaultOfstring {
      * @type {number}
      * @memberof DefaultOfstring
      */
-    errorCode?: number;
+    error_code?: number;
     /**
      * Contains the error message, that possibly occurred. If it is empty, everything is fine.
      * @type {string}
      * @memberof DefaultOfstring
      */
-    errorMessage?: string;
+    error_message?: string;
 }
 
 /**
@@ -292,13 +292,13 @@ export interface DefaultUsageResponse {
      * @type {number}
      * @memberof DefaultUsageResponse
      */
-    errorCode?: number;
+    error_code?: number;
     /**
      * Contains the error message, that possibly occurred. If it is empty, everything is fine.
      * @type {string}
      * @memberof DefaultUsageResponse
      */
-    errorMessage?: string;
+    error_message?: string;
 }
 
 /**
